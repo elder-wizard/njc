@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
 
     //header
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 50) {
@@ -24,9 +24,9 @@ $(document).ready(function() {
     });
 
 
-     //blue background every second slide
-     $( ".slides blockquote:odd" ).removeClass('quote');
-     $( ".slides blockquote:odd" ).addClass('quote-bg');
+    //blue background every second slide
+    $(".slides blockquote:odd").removeClass('quote');
+    $(".slides blockquote:odd").addClass('quote-bg');
 });
 
 
@@ -35,7 +35,7 @@ $(document).ready(function () {
     //smoothscroll
     $('.main-btn-block a').on('click', function (e) {
         e.preventDefault;
-       $(document).off("click");
+        $(document).off("click");
 
         $('a').each(function () {
             $(this).removeClass('active');
@@ -46,29 +46,28 @@ $(document).ready(function () {
             menu = target;
         $target = $(target);
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top-86
+            'scrollTop': $target.offset().top - 86
         }, 500, 'swing', function () {
             window.location.hash = target;
         });
     });
 });
 
-function onScroll(e){
+function onScroll(e) {
 
-    var scrollPos = $(document).scrollTop()+86;
+    var scrollPos = $(document).scrollTop() + 86;
     $('#navbarSupportedContent a').each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
-        if (refElement.position().top-86 <= scrollPos && refElement.position().top-86 + refElement.height() > scrollPos) {
+        if (refElement.position().top - 86 <= scrollPos && refElement.position().top - 86 + refElement.height() > scrollPos) {
             $('#navbarSupportedContent ul li a').removeClass("active");
             currLink.addClass("active");
-        }
-        else{
+        } else {
             currLink.removeClass("active");
         }
     });
 
-    
+
 }
 
 
@@ -76,5 +75,11 @@ function onScroll(e){
 
 $('.img-container').css("padding-top", $("#header").height());
 
+///antispam trap input
 
-
+$('#bots-trap').blur(function () {
+    if ($(this).val()) {
+        $(".btn-submit").remove();
+        alert("sorry, antispam fires");
+    }
+});

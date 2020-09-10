@@ -133,6 +133,12 @@ img {
 }
 
 
+/* anispam trap*/
+
+input#bots-trap {
+  display: none;
+}
+
 
 /* HEADER*/
 
