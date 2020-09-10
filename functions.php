@@ -240,7 +240,26 @@ register_sidebar(array(
     'before_title' => '',
     'after_title' => '',
 	));
-
+	register_sidebar(array(
+    'name' => 'Doporučení od studentů',
+    'id' => 'doporuceni_od_st',
+	'class' => '',
+    'description' => '',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '',
+    'after_title' => '',
+	));
+	register_sidebar(array(
+    'name' => 'Adress 3',
+    'id' => 'footer-8',
+	'class' => '',
+    'description' => '',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '',
+    'after_title' => '',
+));
 	
 function footer_tel() {
 	if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-1') ) : 
@@ -273,6 +292,15 @@ function footer_adr_1() {
 		endif;
 }
 	 
+function doporuceni_od_st() {
+	if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('doporuceni_od_st') ) : 
+		endif;
+}
+	 
+function footer_adr_3() {
+	if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-8') ) : 
+		endif;
+}
 
 
 /*Contact form 7 remove span*/
@@ -283,3 +311,15 @@ add_filter('wpcf7_form_elements', function($content) {
         
     return $content;
 });
+
+
+/* antispan field check */ 
+
+ 
+if(isset($_POST['adres']) && !empty($_POST['adres'])) {
+ 
+echo "sorry, antispan fires!";
+ 
+exit;
+ 
+}
